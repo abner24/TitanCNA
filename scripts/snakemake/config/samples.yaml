@@ -1,7 +1,8 @@
 samples:
-  tumor_sample_1:  /path/to/bam/tumor.bam
-  normal_sample_1:  /path/to/bam/normal.bam
-
+  tumor_sample_1:
+    /mnt/projects/mslim/ITH/results/simulation/hg001/sim/mutect/out/tumor/tumor.bwamem.dedup.realn.recal.bam
+  normal_sample_1:
+    /mnt/projects/mslim/ITH/results/simulation/hg001/sim/mutect/out/normal/normal.bwamem.dedup.realn.recal.bam
 
 pairings:
   tumor_sample_1:  normal_sample_1

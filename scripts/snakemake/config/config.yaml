@@ -1,9 +1,8 @@
 ## path to tools ##
-readCounterScript:  /path/to/readCounter
-ichorCNA_rscript:  /path/to/ichorCNA.R
-ichorCNA_libdir:
-  /path/to/ichorCNA_code
-pyCountScript:  code/countPysam.py
+readCounterScript:  /home/mslim/git/hmmcopy_utils/bin/readCounter
+ichorCNA_rscript:  /mnt/projects/mslim/ITH/data/ichorCNA/scripts/runIchorCNA.R
+ichorCNA_libdir:  /mnt/projects/mslim/ITH/data/ichorCNA/R
+pyCountScript:  /mnt/projects/mslim/ITH/data/titan/scripts/snakemake/code/countPysam.py
 TitanCNA_rscript: ../R_scripts/titanCNA.R
 TitanCNA_selectSolutionRscript: ../R_scripts/selectSolution.R
 TitanCNA_libdir:  ../../R/
@@ -12,12 +11,12 @@ TitanCNA_libdir:  ../../R/
 ichorCNA_exons:
   NULL
 ichorCNA_centromere:
-  /path/to/GRCh37.p13_centromere_UCSC-gapTable.txt
+  /mnt/projects/mslim/ITH/data/ichorCNA/inst/extdata/GRCh37.p13_centromere_UCSC-gapTable.txt
 refFasta:
-  /seq/references/Homo_sapiens_assembly19/v1/Homo_sapiens_assembly19.fasta
+  /mnt/projects/rpd/genomes/gatk-bundle/2.8/b37/human_g1k_v37.fasta
 snpDB:
-  /path/to/hapmap_3.3.b37.vcf
-TitanCNA_centromere:  /path/to/GRCh37.p13_centromere_UCSC-gapTable.txt
+  /mnt/projects/rpd/genomes/gatk-bundle/2.8/b37/dbsnp_138.b37.vcf.gz
+TitanCNA_centromere:  /mnt/projects/mslim/ITH/data/ichorCNA/inst/GRCh37.p13_centromere_UCSC-gapTable.txt
 
 ## params for each step ##
 
@@ -27,8 +26,8 @@ chrs:
 binSize:  10000
 
 ## ichorCNA params ##
-ichorCNA_gcWig: /path/to/gc_hg19_10kb.wig
-ichorCNA_mapWig:  /path/to/map_hg19_10kb.wig
+ichorCNA_gcWig: /mnt/projects/mslim/ITH/data/ichorCNA/inst/extdata/gc_hg19_1000kb.wig
+ichorCNA_mapWig:  /mnt/projects/mslim/ITH/data/ichorCNA/inst/extdata/map_hg19_1000kb.wig
 ichorCNA_exons:  NULL
 ichorCNA_centromere:  NULL
 ichorCNA_chrs:  c(1:22, \"X\")

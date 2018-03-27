@@ -19,8 +19,7 @@ rule getHETsites:
 	log:
 		"logs/titan/hetPosns/{tumor}/{tumor}.chr{chr}.log"
 	shell:
-		"samtools mpileup -uv -I -f {params.refFasta} -r {wildcards.chr} -l {params.snpDB} {input} | bcftools call -v -c - | grep -e '0/1' -e '#' > {output} 2> {log}"
-
+		"/mnt/software/stow/samtools-1.3.1-fq12/bin/samtools mpileup -uv -I -f {params.refFasta} -r {wildcards.chr} -l {params.snpDB} {input} | bcftools call -v -c - | grep -e '0/1' -e '#' > {output} 2> {log}"
 
 rule getAlleleCountsByChr:
 	input:

@@ -50,7 +50,7 @@ rule runTitanCNA:
 	log:
 		"logs/titan/hmm/titanCNA_ploidy{ploidy}/{tumor}_cluster{clustNum}.log"
 	shell:
-		"Rscript {params.titanRscript} --hetFile {input.alleleCounts} --cnFile {input.corrDepth} --outFile {output.titan} --outSeg {output.segTxt} --outParam {output.param} --outIGV {output.seg} --outPlotDir {output.outRoot} --libdir {params.libdir} --id {wildcards.tumor} --numClusters {wildcards.clustNum} --numCores {params.numCores} --normal_0 {params.normal} --ploidy_0 {wildcards.ploidy} --chrs \"{params.chrs}\" --estimateNormal {params.estimateNormal} --estimatePloidy {params.estimatePloidy} --estimateClonality {params.estimateClonality}  --centromere {params.centromere} --alphaK {params.alphaK} --txnExpLen {params.txnExpLen} --plotYlim \"{params.plotYlim}\" > {log} 2> {log}"
+		"Rscript-3.4.1 {params.titanRscript} --hetFile {input.alleleCounts} --cnFile {input.corrDepth} --outFile {output.titan} --outSeg {output.segTxt} --outParam {output.param} --outIGV {output.seg} --outPlotDir {output.outRoot} --libdir {params.libdir} --id {wildcards.tumor} --numClusters {wildcards.clustNum} --numCores {params.numCores} --normal_0 {params.normal} --ploidy_0 {wildcards.ploidy} --chrs \"{params.chrs}\" --estimateNormal {params.estimateNormal} --estimatePloidy {params.estimatePloidy} --estimateClonality {params.estimateClonality}  --centromere {params.centromere} --alphaK {params.alphaK} --txnExpLen {params.txnExpLen} --plotYlim \"{params.plotYlim}\" > {log} 2> {log}"
 	
 #--alleleModel {params.alleleModel} --alphaR {params.alphaR}
 	
@@ -78,7 +78,7 @@ rule selectSolution:
 		else
 			ploidyRun4=NULL
 		fi
-		Rscript {params.solutionRscript} --ploidyRun2 {input.ploidyDirs[0]} --ploidyRun3 $ploidyRun3 --ploidyRun4 $ploidyRun4 --threshold {params.threshold} --outFile {output} > {log} 2> {log}
+		Rscript-3.4.1 {params.solutionRscript} --ploidyRun2 {input.ploidyDirs[0]} --ploidyRun3 $ploidyRun3 --ploidyRun4 $ploidyRun4 --threshold {params.threshold} --outFile {output} > {log} 2> {log}
 		"""
 #	run:
 #		if "results/titan/hmm/titanCNA_ploidy3" in input:
@@ -89,6 +89,6 @@ rule selectSolution:
 #			ploidyRun4 = input[2]
 #		else:
 #			ploidyRun4 = "NULL"	
-#		os.system("Rscript params.solutionRscript --ploidyRun2 input[0] --ploidyRun3 ploidyRun3 --ploidyRun4 ploidyRun4 --threshold params.threshold --outFile output")
+#		os.system("Rscript-3.4.1 params.solutionRscript --ploidyRun2 input[0] --ploidyRun3 ploidyRun3 --ploidyRun4 ploidyRun4 --threshold params.threshold --outFile output")
 	
 		
