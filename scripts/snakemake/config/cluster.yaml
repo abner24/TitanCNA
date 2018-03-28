@@ -1,5 +1,7 @@
 __default__:
-  N:  titanCNA_snakemake
-  o:  logs/cluster/{rule}.{wildcards}.out
-  e:  logs/cluster/{rule}.{wildcards}.err
-  l:  h_rss=4G,h_rt=2:00:00
+  N : titanCNA_snakemake
+  o : logs/cluster/{rule}.{wildcards}.out
+  e : logs/cluster/{rule}.{wildcards}.err
+  l : h_rss=4G,h_rt=48:00:00
+runTitanCNA:
+  l :  h_rss=16G,h_rt=48:00:00

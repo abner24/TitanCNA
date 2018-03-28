@@ -1,23 +1,23 @@
 ## path to tools ##
 readCounterScript:  /home/mslim/git/hmmcopy_utils/bin/readCounter
 ichorCNA_rscript:  /mnt/projects/mslim/ITH/data/ichorCNA/scripts/runIchorCNA.R
-ichorCNA_libdir:  /mnt/projects/mslim/ITH/data/ichorCNA/R
+ichorCNA_libdir:  /mnt/projects/mslim/ITH/data/ichorCNA/R/
 pyCountScript:  /mnt/projects/mslim/ITH/data/titan/scripts/snakemake/code/countPysam.py
-TitanCNA_rscript: ../R_scripts/titanCNA.R
-TitanCNA_selectSolutionRscript: ../R_scripts/selectSolution.R
-TitanCNA_libdir:  ../../R/
+TitanCNA_rscript: /mnt/projects/mslim/ITH/data/titan/scripts/R_scripts/titanCNA.R
+TitanCNA_selectSolutionRscript: /mnt/projects/mslim/ITH/data/titan/scripts/R_scripts/selectSolution.R
+TitanCNA_libdir:  /mnt/projects/mslim/ITH/data/titan/
 
 ## path to reference files ##
 ichorCNA_exons:
   NULL
 ichorCNA_centromere:
-  /mnt/projects/mslim/ITH/data/ichorCNA/inst/extdata/GRCh37.p13_centromere_UCSC-gapTable.txt
+  /mnt/projects/mslim/ITH/data/titan/scripts/TenX_scripts/data/GRCh37.p13_centromere_UCSC-gapTable.txt
 refFasta:
   /mnt/projects/rpd/genomes/gatk-bundle/2.8/b37/human_g1k_v37.fasta
 snpDB:
   /mnt/projects/rpd/genomes/gatk-bundle/2.8/b37/dbsnp_138.b37.vcf.gz
-TitanCNA_centromere:  /mnt/projects/mslim/ITH/data/ichorCNA/inst/GRCh37.p13_centromere_UCSC-gapTable.txt
-
+TitanCNA_centromere:  
+  /mnt/projects/mslim/ITH/data/titan/scripts/TenX_scripts/data/GRCh37.p13_centromere_UCSC-gapTable.txt
 ## params for each step ##
 
 ## read depth params ##
@@ -26,8 +26,8 @@ chrs:
 binSize:  10000
 
 ## ichorCNA params ##
-ichorCNA_gcWig: /mnt/projects/mslim/ITH/data/ichorCNA/inst/extdata/gc_hg19_1000kb.wig
-ichorCNA_mapWig:  /mnt/projects/mslim/ITH/data/ichorCNA/inst/extdata/map_hg19_1000kb.wig
+ichorCNA_gcWig:  /mnt/projects/mslim/ITH/data/titan/scripts/TenX_scripts/data/gc_hg19_10kb.wig
+ichorCNA_mapWig:  /mnt/projects/mslim/ITH/data/titan/scripts/TenX_scripts/data/map_hg19_10kb.wig
 ichorCNA_exons:  NULL
 ichorCNA_centromere:  NULL
 ichorCNA_chrs:  c(1:22, \"X\")
@@ -52,7 +52,7 @@ base_quality: 10
 vcf_quality:  100
 
 ## TitanCNA params ##
-TitanCNA_numCores: 1
+TitanCNA_numCores: 4
 TitanCNA_maxNumClonalClusters: 2
 TitanCNA_chrs:  c(1:22, \"X\")
 TitanCNA_normalInit: 0.5
